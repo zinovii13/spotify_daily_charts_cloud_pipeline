@@ -23,7 +23,14 @@ def spotify_api_extract_raw_data(request):
   today = datetime.today().strftime('%Y-%m-%d')
 
   # dict charts
-  playlist_by_country = {'ua':'37i9dQZEVXbKkidEfWYRuD', 'global': '37i9dQZEVXbMDoHDwVN2tF', 'pl' : '37i9dQZEVXbN6itCcaL3Tt', 'sk': '6WrpeNyqtoq6PEDXyuamGt', 'hu': '37i9dQZEVXbNHwMxAkvmF8', 'ro': '37i9dQZEVXbNZbJ6TZelCq'}
+  playlist_by_country = {
+    'ua':'37i9dQZEVXbKkidEfWYRuD', 
+    'global': '37i9dQZEVXbMDoHDwVN2tF', 
+    'pl' : '37i9dQZEVXbN6itCcaL3Tt', 
+    'sk': '6WrpeNyqtoq6PEDXyuamGt', 
+    'hu': '37i9dQZEVXbNHwMxAkvmF8', 
+    'ro': '37i9dQZEVXbNZbJ6TZelCq'
+    }
 
   for country, playlist_id in playlist_by_country.items():
 
@@ -34,5 +41,5 @@ def spotify_api_extract_raw_data(request):
     # json.dumps() serializes a dictionary object as string
     blob.upload_from_string(json.dumps(spotify.playlist(playlist_id=playlist_id)))
 
-  requests.post(CLOUD_FUNCTION_SPOTIFY_API_EXTRACT_CLEANED_DATA_URL)
+  requests.post("https://example.com/")  # CLOUD_FUNCTION_SPOTIFY_API_EXTRACT_CLEANED_DATA_URL
   return {'response' : 'charts were succefully uploaded to bucket'}

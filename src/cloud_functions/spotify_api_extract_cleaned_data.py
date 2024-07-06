@@ -65,5 +65,5 @@ def spotify_api_extract_cleaned_data(request):
       # uploading data using upload_from_string method
       blob.upload_from_string(cleaned_data)
 
-  requests.post(CLOUD_FUNCTION_SPOTIFY_API_LOAD_DATA_TO_BIGQUERY_URL)
+  requests.post("https://example.com/")  # CLOUD_FUNCTION_SPOTIFY_API_LOAD_DATA_TO_BIGQUERY_URL
   return "charts data were succefully moved to cleaned bucket"

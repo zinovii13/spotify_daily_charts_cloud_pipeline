@@ -59,7 +59,7 @@ def spotify_api_load_data_to_bigquery(request):
           # Waits for the job to complete.
           load_job.result()
           # time.sleep(30)
-      except:
+      except Exception:
 
         # assign schema to table
         table = bigquery.Table(table_id, schema=schema)
@@ -92,4 +92,4 @@ def spotify_api_load_data_to_bigquery(request):
         load_job.result()
         # time.sleep(30)
           
-  return f"New tables data were succefully upload to bigquery"
+  return "New tables data were succefully upload to bigquery"
